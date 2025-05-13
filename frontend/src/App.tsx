@@ -5,6 +5,7 @@ import SubmodulesPage from './pages/submodules';
 import QuestionsPage from './pages/questions';
 import DashBoardPage from './pages/dashboard';
 import CreateAccountPage from './pages/create-account';
+import Login from './pages/login';
 
 function App() {
   return (
@@ -43,6 +44,12 @@ function App() {
                     <DashBoardPage /> 
                 }
               /> 
+              <Route 
+                path='/login' 
+                element={
+                  <Login/> 
+                }
+              />
          </Routes>
      </Router>
   )

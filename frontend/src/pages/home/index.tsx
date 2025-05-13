@@ -1,6 +1,6 @@
 import type React from "react";
-import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom";
+import { Button } from "../../components/ui/button";
 
 type PromoPageProps={
 
@@ -9,20 +9,32 @@ type PromoPageProps={
 const PromoPage:React.FunctionComponent<PromoPageProps> = () => { 
     return ( 
         <>
-            <nav> 
-                <h1>Doctorator-generator</h1>
-                <div>
-                    <Button>
+            <nav className="flex justify-between "> 
+                <h1 style={{color:'#646cff'}}>Doctorator-generator</h1>
+                <div className="flex gap-3 items-center text-xl">
+                    <Button asChild variant="outline" className="">
                         <Link
                             to={{
-                                pathname:'/create-valid'
+                                pathname:"/create-account"
                             }}
-                        />
+                        >
+                            Register
+                        </Link>
                     </Button>
-                    <Button>
+                    <Button asChild variant='outline'>
+                        <Link 
+                            to={{
+                                pathname:'/login'
+                            }}
+                        >
+                            Login 
+                        </Link>
                     </Button>
                 </div>
             </nav>
+            <main> 
+                
+            </main>
         </>
     )
 }
