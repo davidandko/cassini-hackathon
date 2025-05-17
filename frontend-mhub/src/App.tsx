@@ -5,6 +5,8 @@ import React from 'react'
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {MedicalDashboard} from "@/components/Dashboard/Dashboard.tsx";
 import {ServiceRegistrationPage} from "@/components/ServiceRegistration/ServiceRegistration.tsx";
+import {ServicesMarketplace} from "@/components/ServiceMarketPlace/ServiceMarketplace.tsx";
+import {HomePage} from "@/components/Home/Home.tsx";
 
 function App() {
 
@@ -13,6 +15,8 @@ function App() {
           <Routes>
               <Route path={"/dashboard"} element={<MedicalDashboard/>}></Route>
               <Route path={"/services/register"} element={<ServiceRegistrationPage/>}></Route>
+              <Route path={"/services"} element={<ServicesMarketplace/>}></Route>
+              <Route path={"/"} element={<HomePage/>}></Route>
           </Routes>
       </Router>
   )

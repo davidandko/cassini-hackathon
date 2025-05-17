@@ -4,7 +4,6 @@ import React from "react";
 import {Progress} from "@/components/ui/progress.tsx";
 import { Icons } from "./Icons";
 import {BarChart, LineChart} from "@/components/Dashboard/Charts.tsx";
-import {Label} from "@/components/ui/label.tsx";
 
 export function MedicalDashboard() {
     const diseaseInfo = {
