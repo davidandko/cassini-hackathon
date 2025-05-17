@@ -32,9 +32,12 @@ const PromoPage:React.FunctionComponent<PromoPageProps> = () => {
                     </Button>
                 </div>
             </nav>
-            <main> 
-                
-            </main>
+            <div style={{
+                width:"20px" ,
+                height:'20px'
+            }} className=""
+            >
+            </div>
         </>
     )
 }
