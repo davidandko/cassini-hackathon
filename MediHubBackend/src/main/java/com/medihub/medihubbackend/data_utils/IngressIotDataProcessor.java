@@ -56,7 +56,7 @@ public class IngressIotDataProcessor {
                 deviceData.setDeviceDataName(k);
 
                 deviceDataRepo.save(deviceData);
-                device.getGenerates().add(deviceData);
+                device.getGeneratedData().add(deviceData);
             });
         }) ;
 

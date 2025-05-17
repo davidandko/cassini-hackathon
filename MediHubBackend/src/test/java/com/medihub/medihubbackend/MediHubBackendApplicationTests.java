@@ -38,7 +38,7 @@ class MediHubBackendApplicationTests {
     DeviceRepo deviceRepo;
 
     @Test
-    void contextLoads(IngressIotDataProcessor ingressIotDataProcessor) {
+    void contextLoads(@Autowired IngressIotDataProcessor ingressIotDataProcessor) {
         String testUsername="we";
         String testDeviceName="dev1";
 
@@ -63,7 +63,7 @@ class MediHubBackendApplicationTests {
                 Map.of("timestamp", "2025-05-17T08:09:00Z", "heartRate", "117", "confidence", "0.91")
         );
 
-        ingressIotDataProcessor.processData(mockData,);
+        ingressIotDataProcessor.processData(mockData,testUsername,testDeviceName);
     }
 
 }
