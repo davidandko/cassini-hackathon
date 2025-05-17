@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -18,7 +19,7 @@ public class IotIngressController {
 
     @PostMapping("/{username}/{device}/")
     public ResponseEntity<Void> ingressData(
-            @RequestParam Map<String,String> deviceDataNameMesaurments,
+            @RequestParam List<Map<String,String>> deviceDataNameMesaurments,
             @PathVariable String username,
             @PathVariable String device,
             IngressIotDataProcessor iotDataProcessor

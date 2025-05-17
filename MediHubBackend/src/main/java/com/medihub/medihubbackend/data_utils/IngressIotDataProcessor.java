@@ -42,20 +42,22 @@ public class IngressIotDataProcessor {
     }
 
     //DevideName e idto na devicot
-    public void processData(Map<String,String> data,String username, String deviceName){
+    public void processData(List<Map<String,String>> data,String username, String deviceName){
         MediHubUser user = this.mediHubUserRepo.findByUsername(username);
         Device device = this.deviceRepo.findByNameAndRegisterFor(deviceName,user);
 
-        data.forEach((k,v)->{
-            DeviceData deviceData = new DeviceData();
+        data.forEach(map->{
+            map.forEach((k,v) -> {
+                DeviceData deviceData = new DeviceData();
 
-            deviceData.setData(v);
-            deviceData.setMeasuredAt(LocalDateTime.now());
-            deviceData.setForHealthMetric(findHealthMetrics(DEVICE_NAME_TO_HEALTH_METRIC.get(k)));
-            deviceData.setDeviceDataName(k);
+                deviceData.setData(v);
+                deviceData.setMeasuredAt(LocalDateTime.now());
+                deviceData.setForHealthMetric(findHealthMetrics(DEVICE_NAME_TO_HEALTH_METRIC.get(k)));
+                deviceData.setDeviceDataName(k);
 
-            deviceDataRepo.save(deviceData);
-            device.getGenerates().add(deviceData);
+                deviceDataRepo.save(deviceData);
+                device.getGenerates().add(deviceData);
+            });
         }) ;
 
         deviceRepo.save(device);
