@@ -1,0 +1,42 @@
+// components/icons.tsx
+import {
+    AlertCircle,
+    Battery,
+    Calendar,
+    Check,
+    Edit,
+    Plus,
+    Settings,
+    Phone,
+    Hospital,
+    Watch,
+    Stethoscope,
+    Activity,
+    Droplet,
+    Weight, Shield, Zap, BadgeCheck, Mail, MessageSquare, Users, Database, Send,
+} from "lucide-react";
+
+export const Icons = {
+    alert: AlertCircle,
+    battery: Battery,
+    calendar: Calendar,
+    check: Check,
+    edit: Edit,
+    plus: Plus,
+    settings: Settings,
+    phone: Phone,
+    hospital: Hospital,
+    smartwatch: Watch,
+    medical: Stethoscope,
+    bloodTest: Droplet,
+    emergency: Activity,
+    weight: Weight,
+    shield: Shield,
+    zap: Zap,
+    badgeCheck: BadgeCheck,
+    mail: Mail,
+    message: MessageSquare,
+    users: Users,
+    database: Database,
+    send: Send
+};
