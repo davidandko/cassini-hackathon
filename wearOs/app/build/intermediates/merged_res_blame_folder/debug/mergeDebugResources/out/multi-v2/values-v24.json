@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "main.mobile.healthmatewatchos.app-mergeDebugResources-90:/values-v24/values-v24.xml",
+            "map": [
+                {
+                    "source": "/Users/davidandko/.gradle/caches/8.11.1/transforms/4097e8e7c4452910718547833befda4f/transformed/wear-1.3.0/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "929"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "347",
+                        "endLines": "16",
+                        "endColumns": "12",
+                        "endOffsets": "1221"
+                    }
+                },
+                {
+                    "source": "/Users/davidandko/.gradle/caches/8.11.1/transforms/35c5e18657a1bdc24fa04507c9ac7f08/transformed/appcompat-1.6.1/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                }
+            ]
+        }
+    ]
+}
