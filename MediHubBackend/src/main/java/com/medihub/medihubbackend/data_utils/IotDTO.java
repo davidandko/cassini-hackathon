@@ -66,6 +66,8 @@ public class IotDTO {
                 "metricName='" + metricName + '\'' +
                 ", timestamp=" + timestamp +
                 ", value='" + value + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", longitude='" + longitude + '\'' +
                 '}';
     }
 }

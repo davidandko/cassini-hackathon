@@ -27,7 +27,7 @@ public class DataAggregationApi {
     }
     @GetMapping("/sync")
     public void syncDataWithCopernicus(@RequestParam String username, @RequestParam String device){
-
+        
     }
 
 }
