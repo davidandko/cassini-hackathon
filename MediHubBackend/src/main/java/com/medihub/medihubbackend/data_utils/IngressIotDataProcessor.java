@@ -2,7 +2,7 @@ package com.medihub.medihubbackend.data_utils;
 
 import com.medihub.medihubbackend.domain.Device;
 import com.medihub.medihubbackend.domain.DeviceData;
-import com.medihub.medihubbackend.domain.HealMetric;
+import com.medihub.medihubbackend.domain.HealthMetric;
 import com.medihub.medihubbackend.domain.MediHubUser;
 import com.medihub.medihubbackend.repositories.DeviceDataRepo;
 import com.medihub.medihubbackend.repositories.DeviceRepo;
@@ -10,7 +10,6 @@ import com.medihub.medihubbackend.repositories.HealthMetricRepo;
 import com.medihub.medihubbackend.repositories.MediHubUserRepo;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,34 +30,30 @@ public class IngressIotDataProcessor {
     ) {
         this.deviceDataRepo = deviceDataRepo;
         this.healthMetricRepo = healthMetricRepo;
-        this.mediHubUserRepo=mediHubUserRepo;
+        this.mediHubUserRepo = mediHubUserRepo;
         this.deviceRepo = deviceRepo;
     }
 
     private static Map<String, List<String>> DEVICE_NAME_TO_HEALTH_METRIC = new HashMap<>();
 
-    private List<HealMetric> findHealthMetrics(List<String> healthMetricNames){
+    private List<HealthMetric> findHealthMetrics(List<String> healthMetricNames) {
         return this.healthMetricRepo.findByNameIn(healthMetricNames);
     }
 
     //DevideName e idto na devicot
-    public void processData(List<Map<String,String>> data,String username, String deviceName){
+    public void processData(IotDTO data, String username, String deviceName) {
         MediHubUser user = this.mediHubUserRepo.findByUsername(username);
-        Device device = this.deviceRepo.findByNameAndRegisterFor(deviceName,user);
+        Device device = this.deviceRepo.findByName(deviceName);
 
-        data.forEach(map->{
-            map.forEach((k,v) -> {
-                DeviceData deviceData = new DeviceData();
 
-                deviceData.setData(v);
-                deviceData.setMeasuredAt(LocalDateTime.now());
-                deviceData.setForHealthMetric(findHealthMetrics(DEVICE_NAME_TO_HEALTH_METRIC.get(k)));
-                deviceData.setDeviceDataName(k);
+        DeviceData deviceData = new DeviceData();
+        HealthMetric metric = this.healthMetricRepo.findByName(data.getMetricName());
+        deviceData.setHealthMetric(metric);
+        deviceData.setValue(data.getValue());
+        deviceData.setMeasuredAt(data.getTimestamp());
+        deviceDataRepo.save(deviceData);
+        System.out.println("data: " + data.toString());
 
-                deviceDataRepo.save(deviceData);
-                device.getGeneratedData().add(deviceData);
-            });
-        }) ;
 
         deviceRepo.save(device);
     }

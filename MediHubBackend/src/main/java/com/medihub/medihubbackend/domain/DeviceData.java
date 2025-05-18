@@ -1,7 +1,6 @@
 package com.medihub.medihubbackend.domain;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,11 +15,11 @@ public class DeviceData {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
     String data;
-    String deviceDataName;
     LocalDateTime measuredAt;
+    String value;
 
-    @ManyToMany(mappedBy = "measuredIn")
-    List<HealMetric> forHealthMetric;
+    @ManyToOne
+    HealthMetric healthMetric;
 
     public Long getId() {
         return id;
@@ -34,16 +33,8 @@ public class DeviceData {
         return data;
     }
 
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public String getDeviceDataName() {
-        return deviceDataName;
-    }
-
-    public void setDeviceDataName(String deviceDataName) {
-        this.deviceDataName = deviceDataName;
+    public void setData(Object data) {
+        this.data = (String) data;
     }
 
     public LocalDateTime getMeasuredAt() {
@@ -54,11 +45,23 @@ public class DeviceData {
         this.measuredAt = measuredAt;
     }
 
-    public List<HealMetric> getForHealthMetric() {
-        return forHealthMetric;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public void setForHealthMetric(List<HealMetric> forHealthMetric) {
-        this.forHealthMetric = forHealthMetric;
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public HealthMetric getHealthMetric() {
+        return healthMetric;
+    }
+
+    public void setHealthMetric(HealthMetric forHealthMetric) {
+        this.healthMetric = forHealthMetric;
     }
 }

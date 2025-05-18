@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Ilness {
+public class Illness {
     @Id
     String name;
 
@@ -14,6 +14,6 @@ public class Ilness {
     List<IllnessLinkedEnvRiskFactor> envRiskFactorsInfluence;
 
     @ManyToMany
-    List<HealMetric> healMetricsInfluence;
+    List<HealthMetric> healMetricsInfluence;
 
 }

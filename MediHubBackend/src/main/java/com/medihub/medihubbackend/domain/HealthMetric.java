@@ -12,5 +12,5 @@ public class HealthMetric {
     String name;
 
     @ManyToMany
-    List<DeviceData> measuredBy;
+    List<DeviceData> measuredIn;
 }
