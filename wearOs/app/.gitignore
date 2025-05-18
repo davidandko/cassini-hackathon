@@ -1,1 +1,33 @@
-/build
+# Gradle
+.gradle/
+build/
+**/build/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+*.bak
+
+# Local Configuration
+local.properties
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Keystore files
+*.jks
+
+# Android Studio navigation editor temp files
+.navigation/
+
+# Others
+.cxx/
+.externalNativeBuild/
+captures/
+output.json
